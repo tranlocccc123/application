@@ -170,7 +170,7 @@ const OrderScreen = ({ match }) => {
                           <img src={item.image} alt={item.name} />
                         </div>
                         <div className="col-md-5 col-6 d-flex align-items-center">
-                          <Link to={`/SanPhams/${item.product}`}>
+                          <Link to={`/SanPham/${item.product}`}>
                             <h6>{item.name}</h6>
                           </Link>
                         </div>

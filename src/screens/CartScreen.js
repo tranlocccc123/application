@@ -67,24 +67,24 @@ const CartScreen = ({ match, location, history }) => {
                 <div className="cart-image col-md-3">
                   <img src={item.image} alt={item.name} />
                 </div>
-                
+
                 <div className="cart-text col-md-5 d-flex align-items-center">
-                  <Link to={`/SanPhams/${item.product}`}>
+                  <Link to={`/SanPham/${item.product}`}>
                     <h4>{item.name}</h4>
                     <h6>Size: {item.size}</h6>
                     <h6>Màu sắc: {item.color}</h6>
                   </Link>
                 </div>
-    
+
                 <div className="cart-qty col-md-2 col-sm-5 mt-md-5 mt-3 mt-md-0 d-flex flex-column justify-content-center">
                   <h6>SỐ LƯỢNG</h6>
                   <select
                     value={item.qty}
                     onChange={(e) =>
                       dispatch(addToCart(item.product, Number(e.target.value)))
-                     
+
                     }
-                    
+
                   >
                     {[...Array(item.countInStock).keys()].map((x) => (
                       <option key={x + 1} value={x + 1}>
