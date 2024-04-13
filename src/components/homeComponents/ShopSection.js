@@ -15,14 +15,14 @@ const ShopSection = (props) => {
   const productList = useSelector((state) => state.productList);
   const { loading, error, products, page, pages } = productList;
 
-  
+
   useEffect(() => {
     dispatch(listProduct(keyword, pagenumber));
   }, [dispatch, keyword, pagenumber]);
 
   console.log(products)
 
-  
+
   return (
     <>
       <div className="container">
@@ -30,7 +30,7 @@ const ShopSection = (props) => {
           <div className="row">
             <div className="col-lg-12 col-md-12 article">
               <div className="shopcontainer row">
-                     
+
                 {loading ? (
                   <div className="mb-5">
                     <Loading />
@@ -38,38 +38,38 @@ const ShopSection = (props) => {
                 ) : error ? (
                   <Message variant="alert-danger">{error}</Message>
                 ) : (
-                  <>
-                    {products?.map((product) => (
-                      <div
-                        className="shop col-lg-4 col-md-6 col-sm-6"
-                        key={product.maSoSanPham}
-                      >
-                        <div className="border-product">
-                          <Link to={`/products/${product.maSoSanPham}`}>
-                            <div className="shopBack">
-                              <img src={product.image} alt={product.name} />
-                            </div>
-                          </Link>
-
-                          <div className="shoptext">
-                            <p>
-                              <Link to={`/products/${product.maSoSanPham}`}>
-                                {product.tenSanPham}  {product.moTaSanPham}
+                      <>
+                        {products?.map((product) => (
+                          <div
+                            className="shop col-lg-4 col-md-6 col-sm-6"
+                            key={product.maSanPham}
+                          >
+                            <div className="border-product">
+                              <Link to={`/products/${product.maSanPham}`}>
+                                <div className="shopBack">
+                                  <img src={product.image} alt={product.name} />
+                                </div>
                               </Link>
-                            </p>
 
-                            <Rating
-                              value={product.rating}
-                              text={`${product.numReviews} Đánh giá`}
-                            />
-                            <h3>{product.gia} VND</h3>
+                              <div className="shoptext">
+                                <p>
+                                  <Link to={`/products/${product.maSanPham}`}>
+                                    {product.tenSanPham}  {product.moTaSanPham}
+                                  </Link>
+                                </p>
+
+                                <Rating
+                                  value={product.rating}
+                                  text={`${product.numReviews} Đánh giá`}
+                                />
+                                <h3>{product.gia} VND</h3>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                    ))}
-                  </>
-                )}
-                
+                        ))}
+                      </>
+                    )}
+
                 {/* Pagination */}
                 <Pagination
                   pages={pages}
