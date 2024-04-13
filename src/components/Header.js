@@ -36,7 +36,7 @@ const Header = () => {
               <p>army240620002gmail.com</p>
             </div>
             <div className=" col-12 col-lg-6 justify-content-center justify-content-lg-end d-flex align-items-center">
-              <Link to="https://www.facebook.com/balan2000/">
+              <Link>
                 <i className="fab fa-facebook-f"></i>
               </Link>
               <Link to="">
@@ -45,7 +45,7 @@ const Header = () => {
               <Link to="">
                 <i className="fab fa-linkedin-in"></i>
               </Link>
-              <Link to="https://www.youtube.com/">
+              <Link >
                 <i className="fab fa-youtube"></i>
               </Link>
               <Link to="">
@@ -81,7 +81,7 @@ const Header = () => {
                       </button>
                       <div className="dropdown-menu">
                         <Link className="dropdown-item" to="/profile">
-                         Trang cá nhân
+                          Trang cá nhân
                         </Link>
 
                         <Link
@@ -94,27 +94,27 @@ const Header = () => {
                       </div>
                     </div>
                   ) : (
-                    <div className="btn-group">
-                      <button
-                        type="button"
-                        className="name-button dropdown-toggle"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        <i class="fas fa-user"></i>
-                      </button>
-                      <div className="dropdown-menu">
-                        <Link className="dropdown-item" to="/login">
-                          Đăng nhập
+                      <div className="btn-group">
+                        <button
+                          type="button"
+                          className="name-button dropdown-toggle"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          <i class="fas fa-user"></i>
+                        </button>
+                        <div className="dropdown-menu">
+                          <Link className="dropdown-item" to="/login">
+                            Đăng nhập
                         </Link>
 
-                        <Link className="dropdown-item" to="/register">
-                          Đăng ký
+                          <Link className="dropdown-item" to="/register">
+                            Đăng ký
                         </Link>
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
 
                   <Link to="/cart" className="cart-mobile-icon">
                     <i className="fas fa-shopping-bag"></i>
@@ -186,11 +186,11 @@ const Header = () => {
                     </div>
                   </div>
                 ) : (
-                  <>
-                    <Link to="/register">Đăng ký</Link>
-                    <Link to="/login">Đăng nhập</Link>
-                  </>
-                )}
+                    <>
+                      <Link to="/register">Đăng ký</Link>
+                      <Link to="/login">Đăng nhập</Link>
+                    </>
+                  )}
 
                 <Link to="/cart">
                   <i className="fas fa-shopping-bag"></i>

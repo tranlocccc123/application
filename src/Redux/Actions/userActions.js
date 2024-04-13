@@ -19,7 +19,7 @@ import { ORDER_LIST_MY_RESET } from "../Constants/OrderConstants";
 import { URL } from "../Url";
 
 // LOGIN
-export const login = (email, password) => async (dispatch) => {
+export const login = (username, password) => async (dispatch) => {
   try {
     dispatch({ type: USER_LOGIN_REQUEST });
 
@@ -30,8 +30,8 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `${URL}/api/users/login`,
-      { email, password },
+      `${URL}/api/Auth/login`,
+      { username, password },
       config
     );
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
@@ -57,7 +57,7 @@ export const logout = () => (dispatch) => {
 };
 
 // REGISTER
-export const register = (name, email, password) => async (dispatch) => {
+export const register = (username, password) => async (dispatch) => {
   try {
     dispatch({ type: USER_REGISTER_REQUEST });
 
@@ -68,8 +68,8 @@ export const register = (name, email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `${URL}/api/users`,
-      { name, email, password },
+      `${URL}/api/Auth/register`,
+      { username, password },
       config
     );
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
@@ -101,7 +101,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`${URL}/api/users/${id}`, config);
+    const { data } = await axios.get(`${URL}/api/Auth/${id}`, config);
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     const message =
@@ -134,7 +134,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(`/api/users/profile`, user, config);
+    const { data } = await axios.put(`/api/Auth/profile`, user, config);
     dispatch({ type: USER_UPDATE_PROFILE_SUCCESS, payload: data });
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
 

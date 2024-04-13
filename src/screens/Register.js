@@ -26,7 +26,7 @@ const Register = ({ location, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(register(name, email, password));
+    dispatch(register(email, password));
   };
 
   return (
@@ -41,14 +41,8 @@ const Register = ({ location, history }) => {
           onSubmit={submitHandler}
         >
           <input
-            type="text"
-            placeholder="Tên người dùng..."
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
             type="email"
-            placeholder="Email"
+            placeholder="Username"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
